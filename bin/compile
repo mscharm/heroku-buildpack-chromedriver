@@ -32,6 +32,6 @@ function indent() {
 topic "Downloading and installing ChromeDriver to ${BUILD_DIR}"
 
 chromedriver_url="http://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip"
-curl $chromedriver_url -s -o "$BUILD_DIR/vendor/chromedriver/chromedriver.zip"
-unzip "$BUILD_DIR/vendor/chromedriver/chromedriver.zip" -d $BUILD_DIR/.apt/usr/bin
-rm "$BUILD_DIR/vendor/chromedriver/chromedriver.zip"
+curl $chromedriver_url -s -o "$BUILD_DIR/chromedriver.zip"
+unzip "$BUILD_DIR/chromedriver.zip" -d $BUILD_DIR/.apt/usr/bin
+rm "$BUILD_DIR/chromedriver.zip"
