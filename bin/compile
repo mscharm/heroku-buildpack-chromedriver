@@ -35,3 +35,9 @@ chromedriver_url="http://chromedriver.storage.googleapis.com/2.27/chromedriver_l
 curl $chromedriver_url -s -o "$BUILD_DIR/chromedriver.zip"
 unzip "$BUILD_DIR/chromedriver.zip" -d $BUILD_DIR/.apt/usr/bin
 rm "$BUILD_DIR/chromedriver.zip"
+
+topic "Fixing Google Chrome symlinks"
+
+rm $BUILD_DIR/.apt/usr/bin/google-chrome-stable
+ln -s /app/.apt/opt/google/chrome/google-chrome $BUILD_DIR/.apt/usr/bin/google-chrome-stable
+
