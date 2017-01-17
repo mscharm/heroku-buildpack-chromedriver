@@ -41,3 +41,8 @@ topic "Fixing Google Chrome symlinks"
 rm $BUILD_DIR/.apt/usr/bin/google-chrome-stable
 ln -s /app/.apt/opt/google/chrome/google-chrome $BUILD_DIR/.apt/usr/bin/google-chrome-stable
 
+topic "Patching Xvfb to run in a different path"
+
+ln -s /app/.apt/usr/bin $BUILD_DIR/xub
+sed -i s:/usr/bin:/app/xub: $BUILD_DIR/.apt/usr/bin/Xvfb
+
