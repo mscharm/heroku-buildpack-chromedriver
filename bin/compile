@@ -38,6 +38,6 @@ rm "$BUILD_DIR/chromedriver.zip"
 
 topic "Fixing Google Chrome symlinks"
 
-rm $BUILD_DIR/.apt/usr/bin/google-chrome
-ln -s /app/.apt/opt/google/chrome-unstable/google-chrome $BUILD_DIR/.apt/usr/bin/google-chrome
+# rm $BUILD_DIR/.apt/usr/bin/google-chrome
+# ln -s /app/.apt/opt/google/chrome-unstable/google-chrome $BUILD_DIR/.apt/usr/bin/google-chrome
 
