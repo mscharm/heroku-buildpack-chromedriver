@@ -51,7 +51,7 @@ sed -i s:/usr/bin:/app/xub: $BUILD_DIR/.apt/usr/bin/Xvfb
 topic "Patching chromedriver to run in a different path"
 mkdir -p $BUILD_DIR/vendor/bin
 chmod a+x $BUILD_DIR/.apt/usr/bin/chromedriver
-ln -s $BUILD_DIR/.apt/usr/bin/chromedriver $BUILD_DIR/vendor/bin/chromedriver
+ln -s $BUILD_DIR/.apt/usr/bin/chromedriver /usr/local/bin/chromedriver
 
 
 cat <<EOF >$BUILD_DIR/.profile.d/chromedriver.sh
