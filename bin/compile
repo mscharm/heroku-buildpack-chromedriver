@@ -36,7 +36,6 @@ curl $chromedriver_url -s -o "$BUILD_DIR/chromedriver.zip"
 unzip "$BUILD_DIR/chromedriver.zip" -d $BUILD_DIR/.apt/usr/bin
 rm "$BUILD_DIR/chromedriver.zip"
 
-
 topic "Fixing Google Chrome symlinks"
 
 rm $BUILD_DIR/.apt/usr/bin/google-chrome-unstable
@@ -54,4 +53,9 @@ mkdir -p $BUILD_DIR/vendor/bin
 ln -s $BUILD_DIR/.apt/usr/bin/chromedriver $BUILD_DIR/vendor/bin/chromedriver
 #chmod 111 $BUILD_DIR/vendor/bin/chromedriver
 
+cat <<EOF >$BUILD_DIR/.profile.d/chromedriver.sh
+export PATH="\$HOME/.apt/usr/bin:\$PATH:\$HOME/vendor/bin"
+EOF
+
+export PATH="$BUILD_DIR/.apt/usr/bin:$PATH: $BUILD_DIR/vendor/bin"
 
