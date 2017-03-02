@@ -35,7 +35,7 @@ chromedriver_url="http://chromedriver.storage.googleapis.com/2.27/chromedriver_l
 curl $chromedriver_url -s -o "$BUILD_DIR/chromedriver.zip"
 unzip "$BUILD_DIR/chromedriver.zip" -d $BUILD_DIR/.apt/usr/bin
 rm "$BUILD_DIR/chromedriver.zip"
-chmod 111 $BUILD_DIR/.apt/usr/bin/chromedriver
+
 
 topic "Fixing Google Chrome symlinks"
 
@@ -51,4 +51,7 @@ sed -i s:/usr/bin:/app/xub: $BUILD_DIR/.apt/usr/bin/Xvfb
 topic "Patching chromedriver to run in a different path"
 mkdir -p $BUILD_DIR/vendor/bin
 ln -s /app/.apt/usr/bin/chromedriver $BUILD_DIR/vendor/bin/chromedriver
+chmod 111 /app/.apt/usr/bin/chromedriver
+ls -lah /app/.apt/usr/bin/chromedriver
+
 
