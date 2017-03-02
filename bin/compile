@@ -41,6 +41,7 @@ topic "Fixing Google Chrome symlinks"
 
 rm $BUILD_DIR/.apt/usr/bin/google-chrome-unstable
 ln -s /app/.apt/opt/google/chrome-unstable/google-chrome-unstable $BUILD_DIR/.apt/usr/bin/google-chrome-unstable
+ln -s /app/.apt/opt/google/chrome-unstable/google-chrome-unstable $BUILD_DIR/vendor/bin/google-chrome-unstable
 ln -s /app/.apt/usr/lib/x86_64-linux-gnu/libOSMesa.so.6 $BUILD_DIR/.apt/opt/google/chrome-unstable/libosmesa.so
 
 topic "Patching Xvfb to run in a different path"
@@ -50,7 +51,7 @@ sed -i s:/usr/bin:/app/xub: $BUILD_DIR/.apt/usr/bin/Xvfb
 
 topic "Patching chromedriver to run in a different path"
 mkdir -p $BUILD_DIR/vendor/bin
-ln -s /app/.apt/usr/bin/chromedriver $BUILD_DIR/vendor/bin/chromedriver
+ln -s $BUILD_DIR/.apt/usr/bin/chromedriver $BUILD_DIR/vendor/bin/chromedriver
 chmod 111 $BUILD_DIR/vendor/bin/chromedriver
 
 
